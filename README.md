@@ -1,5 +1,5 @@
 # FreelanceHub
-# FreelanceHub
+
 
 A Django-based freelancing marketplace that connects clients and freelancers through a secure, role-based web application.
 
