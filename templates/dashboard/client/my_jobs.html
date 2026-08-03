@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}My Jobs{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="dashboard-card">
+
+        <div class="page-header">
+            <h2>
+                <i class="bi bi-briefcase-fill"></i>
+                My Jobs
+            </h2>
+
+            <p>Manage all your posted jobs.</p>
+        </div>
+
+        <div class="row g-4">
+
+            {% for job in jobs %}
+
+            <div class="col-md-6">
+
+                <div class="job-card">
+
+                    <h3>{{ job.title }}</h3>
+
+                    <p>{{ job.description|truncatewords:20 }}</p>
+
+                    <h5 class="text-success">
+                        ₹{{ job.budget }}
+                    </h5>
+
+                    <small>
+                        Deadline :
+                        {{ job.deadline }}
+                    </small>
+<div class="mt-4 d-flex gap-2 flex-wrap">
+
+    <a href="{% url 'edit_job' job.id %}" class="btn btn-primary">
+        <i class="bi bi-pencil-square"></i>
+        Edit
+    </a>
+
+    <a href="{% url 'delete_job' job.id %}" class="btn btn-danger">
+        <i class="bi bi-trash"></i>
+        Delete
+    </a>
+
+    <a href="{% url 'view_applications' job.id %}" class="apply-btn">
+        <i class="bi bi-people-fill"></i>
+        Applications
+    </a>
+
+</div>
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="empty-box">
+
+                <i class="bi bi-folder-x display-1"></i>
+
+                <h4>No Jobs Posted Yet</h4>
+
+                <p>Create your first freelance job.</p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

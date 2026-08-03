@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="dashboard-page">
+
+<div class="container-fluid">
+
+<div class="row">
+
+    <!-- Sidebar -->
+    <div class="col-lg-3 col-xl-2 p-0">
+
+        <div class="dashboard-sidebar">
+
+            <div class="text-center mb-5">
+
+                <div class="profile-circle">
+
+                    {% if request.user.freelancerprofile.profile_image %}
+                        <img src="{{ request.user.freelancerprofile.profile_image.url }}">
+                    {% else %}
+                        <i class="bi bi-person-circle"></i>
+                    {% endif %}
+
+                </div>
+
+                <h4>{{ request.user.username }}</h4>
+
+                <p>Freelancer</p>
+
+            </div>
+
+            <a href="{% url 'freelancer_dashboard' %}">
+                <i class="bi bi-grid-fill"></i>
+                Dashboard
+            </a>
+
+            <a href="{% url 'job_list' %}">
+                <i class="bi bi-briefcase-fill"></i>
+                Jobs
+            </a>
+
+            <a href="{% url 'my_applications' %}">
+                <i class="bi bi-file-earmark-text-fill"></i>
+                My Applications
+            </a>
+
+            <a href="{% url 'edit_profile' %}">
+                <i class="bi bi-person-fill"></i>
+                Edit Profile
+            </a>
+
+            <a href="{% url 'logout' %}">
+                <i class="bi bi-box-arrow-right"></i>
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-lg-9 col-xl-10">
+
+        <div class="dashboard-content">
+
+            {% block dashboard_content %}
+            {% endblock %}
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

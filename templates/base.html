@@ -1,0 +1,258 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>
+        {% block title %}FreelanceHub{% endblock %}
+    </title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg custom-navbar sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand logo" href="/">
+            <i class="bi bi-briefcase-fill"></i>
+            <span class="dark-text">Freelance</span><span class="blue-text">Hub</span>
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar">
+
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">
+                        <i class="bi bi-house-door"></i> Home
+                    </a>
+                </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'job_list' %}">
+                 <i class="bi bi-search"></i> Find Work
+                   </a>
+                 </li>
+                <li class="nav-item">
+                     <a class="nav-link" href="{% url 'job_list' %}">
+                         <i class="bi bi-briefcase-fill"></i> Jobs
+                     </a>
+                 </li>
+             <li class="nav-item">
+  <a class="nav-link" href="{% url 'home' %}#hire-talent">
+    <i class="bi bi-people-fill"></i> Hire Talent
+</a>
+</li>
+
+                <li class="nav-item">
+    <a class="nav-link" href="{% url 'about' %}">
+        <i class="bi bi-info-circle"></i> About
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'contact' %}">
+        <i class="bi bi-envelope"></i> Contact
+    </a>
+</li>
+
+            </ul>
+
+            <div class="d-flex align-items-center">
+
+    {% if user.is_authenticated %}
+
+        {% if user.role == "client" %}
+
+            <a href="{% url 'client_dashboard' %}" class="btn btn-login me-2">
+                Dashboard
+            </a>
+
+        {% elif user.role == "freelancer" %}
+
+            <a href="{% url 'freelancer_dashboard' %}" class="btn btn-login me-2">
+                Dashboard
+            </a>
+
+        {% elif user.role == "admin" %}
+
+            <a href="{% url 'admin_dashboard' %}" class="btn btn-login me-2">
+                Dashboard
+            </a>
+
+        {% endif %}
+
+        <a href="{% url 'logout' %}" class="btn btn-danger">
+            <i class="bi bi-box-arrow-right"></i> Logout
+        </a>
+
+    {% else %}
+
+        <a href="{% url 'login' %}" class="btn btn-login me-3">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+        </a>
+
+        <a href="{% url 'signup' %}" class="btn btn-register">
+            <i class="bi bi-person-plus-fill"></i> Sign Up
+        </a>
+
+    {% endif %}
+
+</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+{% if messages %}
+<div class="container mt-3">
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert">
+            </button>
+
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+<!-- ================= PAGE CONTENT ================= -->
+
+<main class="page-content">
+
+{% block content %}
+{% endblock %}
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+{% if request.path != '/accounts/login/' and request.path != '/accounts/signup/' %}
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="row gy-4">
+
+            <div class="col-lg-4">
+
+                <h3 class="footer-logo">
+                    Freelance<span>Hub</span>
+                </h3>
+
+                <p>
+                    Connect talented freelancers with clients from around
+                    the world. Hire smarter and work better.
+                </p>
+
+            </div>
+
+            <div class="col-lg-2">
+
+                <h5>Company</h5>
+
+                <ul>
+
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Careers</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="col-lg-2">
+
+                <h5>Support</h5>
+
+                <ul>
+
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="col-lg-4">
+
+                <h5>Follow Us</h5>
+
+                <p>Stay connected on social media.</p>
+
+                <div class="social-icons">
+
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+
+                    <a href="#"><i class="bi bi-github"></i></a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="text-center">
+
+            <p class="mb-1">
+                © 2026 FreelanceHub. All Rights Reserved.
+            </p>
+
+            <small>
+                Built with ❤️ using Django & Bootstrap
+            </small>
+
+        </div>
+
+    </div>
+
+</footer>
+{% endif %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

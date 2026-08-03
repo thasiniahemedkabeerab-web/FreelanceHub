@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}Applications{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="dashboard-card">
+
+        <div class="page-header">
+
+            <h2>
+                <i class="bi bi-people-fill"></i>
+                Applications for "{{ job.title }}"
+            </h2>
+
+            <p>Review freelancer proposals.</p>
+
+        </div>
+
+        <div class="row g-4">
+
+            {% for application in applications %}
+
+            <div class="col-lg-6">
+
+                <div class="job-card">
+
+                    <h4>{{ application.freelancer.username }}</h4>
+
+                    <p>
+                        <strong>Bid:</strong>
+                        ₹{{ application.bid_amount }}
+                    </p>
+
+                    <p>
+                        <strong>Proposal:</strong><br>
+                        {{ application.proposal }}
+                    </p>
+
+                    <p>
+                        <strong>Status:</strong>
+
+                        {% if application.status == "Accepted" %}
+                            <span class="badge bg-success">
+                                Accepted
+                            </span>
+
+                        {% elif application.status == "Rejected" %}
+                            <span class="badge bg-danger">
+                                Rejected
+                            </span>
+
+                        {% else %}
+                            <span class="badge bg-warning text-dark">
+                                Pending
+                            </span>
+
+                        {% endif %}
+
+                    </p>
+
+                    {% if application.status == "Pending" %}
+
+                    <div class="d-flex gap-2 mt-3">
+
+                        <a href="{% url 'accept_application' application.id %}"
+                           class="btn btn-success">
+
+                            <i class="bi bi-check-circle"></i>
+                            Accept
+
+                        </a>
+
+                        <a href="{% url 'reject_application' application.id %}"
+                           class="btn btn-danger">
+
+                            <i class="bi bi-x-circle"></i>
+                            Reject
+
+                        </a>
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="empty-box">
+
+                <i class="bi bi-folder-x display-1"></i>
+
+                <h4>No Applications Yet</h4>
+
+                <p>No freelancer has applied for this job.</p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

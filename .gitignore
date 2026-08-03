@@ -1,0 +1,19 @@
+# Virtual environment
+myenv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Database
+db.sqlite3
+
+# IDE
+.vscode/
+.idea/
+
+# Environment
+.env
+
+# Collected static files
+staticfiles/

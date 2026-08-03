@@ -1,0 +1,679 @@
+{% extends 'base.html' %}
+
+{% block title %}FreelanceHub{% endblock %}
+
+{% block content %}
+
+<!-- ================= HERO ================= -->
+
+<section class="hero-section">
+
+    <div class="container">
+
+        <div class="row align-items-start">
+
+            <!-- Left -->
+
+            <div class="col-lg-6">
+
+                <span class="hero-badge">
+                    🚀 Trusted by 20,000+ Freelancers
+                </span>
+
+                <h1 class="hero-heading mt-4">
+                    Hire Top <span>Freelancers</span><br>
+                    For Every Project
+                </h1>
+
+                <p class="hero-description mt-4">
+                    Connect with talented developers, designers,
+                    marketers, writers and AI experts from around the world.
+                </p>
+
+                <!-- Search -->
+
+                <div class="hero-search mt-5">
+
+                    <input
+                        type="text"
+                        placeholder="Search Web Developer, UI Designer, AI Engineer...">
+
+                    <button>
+
+                        <i class="bi bi-search"></i>
+
+                    </button>
+
+                </div>
+
+                <!-- Buttons -->
+
+                <div class="mt-5">
+
+   <a href="#hire-talent" class="btn hero-btn">
+    Hire Talent
+</a>
+
+<a href="{% url 'job_list' %}" class="btn hero-btn-outline ms-3">
+    Find Work
+</a>
+                </div>
+
+                <!-- Tags -->
+
+                <div class="mt-5">
+
+                    <span class="skill-tag">Python</span>
+
+                    <span class="skill-tag">Django</span>
+
+                    <span class="skill-tag">React</span>
+
+                    <span class="skill-tag">Flutter</span>
+
+                    <span class="skill-tag">AI</span>
+
+                </div>
+
+            </div>
+
+            <!-- Right -->
+
+            <div class="col-lg-6 text-center">
+
+                <div class="hero-image-box">
+
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200"
+                         class="img-fluid hero-image">
+
+                    <div class="experience-card">
+
+                        ⭐ 4.9 Rating
+
+                    </div>
+
+                    <div class="project-card">
+
+                        💼 10,000+ Projects
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= TRUSTED COMPANIES ================= -->
+
+<section class="trusted-section">
+
+    <div class="container">
+
+        <p class="text-center trusted-title">
+            Trusted by professionals working with
+        </p>
+
+        <div class="row text-center align-items-center mt-5">
+
+            <div class="col-6 col-md-2">
+                <h3 class="company-name">Google</h3>
+            </div>
+
+            <div class="col-6 col-md-2">
+                <h3 class="company-name">Microsoft</h3>
+            </div>
+
+            <div class="col-6 col-md-2">
+                <h3 class="company-name">Amazon</h3>
+            </div>
+
+            <div class="col-6 col-md-2">
+                <h3 class="company-name">IBM</h3>
+            </div>
+
+            <div class="col-6 col-md-2">
+                <h3 class="company-name">Adobe</h3>
+            </div>
+
+            <div class="col-6 col-md-2">
+                <h3 class="company-name">Meta</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= POPULAR CATEGORIES ================= -->
+
+<section class="categories-section">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2 class="section-title">Popular Categories</h2>
+
+            <p class="section-subtitle">
+                Discover talented freelancers across different industries.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Card 1 -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="category-card">
+
+                    <div class="category-icon">
+                        <i class="bi bi-code-slash"></i>
+                    </div>
+
+                    <h4>Web Development</h4>
+
+                    <p>1200+ Freelancers</p>
+
+                    <a href="#">Explore <i class="bi bi-arrow-right"></i></a>
+
+                </div>
+
+            </div>
+
+            <!-- Card 2 -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="category-card">
+
+                    <div class="category-icon">
+                        <i class="bi bi-palette"></i>
+                    </div>
+
+                    <h4>Graphic Design</h4>
+
+                    <p>850+ Freelancers</p>
+
+                    <a href="#">Explore <i class="bi bi-arrow-right"></i></a>
+
+                </div>
+
+            </div>
+
+            <!-- Card 3 -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="category-card">
+
+                    <div class="category-icon">
+                        <i class="bi bi-phone"></i>
+                    </div>
+
+                    <h4>Mobile Apps</h4>
+
+                    <p>950+ Freelancers</p>
+
+                    <a href="#">Explore <i class="bi bi-arrow-right"></i></a>
+
+                </div>
+
+            </div>
+
+            <!-- Card 4 -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="category-card">
+
+                    <div class="category-icon">
+                        <i class="bi bi-cpu"></i>
+                    </div>
+
+                    <h4>AI & Machine Learning</h4>
+
+                    <p>700+ Freelancers</p>
+
+                    <a href="#">Explore <i class="bi bi-arrow-right"></i></a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= FEATURED FREELANCERS ================= -->
+
+<section id="hire-talent" class="freelancers-section">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <h2 class="section-title">Featured Freelancers</h2>
+            <p class="section-subtitle">
+                Meet talented professionals ready to work on your projects.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            {% for freelancer in freelancers %}
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="freelancer-card">
+
+                    {% if freelancer.profile_image %}
+                        <img src="{{ freelancer.profile_image.url }}"
+                             class="profile-img"
+                             alt="{{ freelancer.user.username }}">
+                    {% else %}
+                        <img src="https://via.placeholder.com/120"
+                             class="profile-img"
+                             alt="Profile">
+                    {% endif %}
+
+                    <h3>{{ freelancer.user.username }}</h3>
+
+                    <p class="profession">
+                        {{ freelancer.title }}
+                    </p>
+
+                    <p>
+                        {{ freelancer.bio }}
+                    </p>
+
+                    <p>
+                        <strong>Skills:</strong>
+                        {{ freelancer.skills }}
+                    </p>
+
+                    <h5 class="price">
+                        ${{ freelancer.hourly_rate }}/hr
+                    </h5>
+
+                    <a href="#" class="btn hire-btn">
+                        View Profile
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12 text-center">
+                <h4>No freelancers available.</h4>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= HOW IT WORKS ================= -->
+
+<section class="how-it-works">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2 class="section-title">How FreelanceHub Works</h2>
+
+            <p class="section-subtitle">
+                Get started in just three simple steps.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Step 1 -->
+
+            <div class="col-lg-4">
+
+                <div class="step-card">
+
+                    <div class="step-icon">
+                        <i class="bi bi-file-earmark-plus"></i>
+                    </div>
+
+                    <h4>Post Your Project</h4>
+
+                    <p>
+                        Tell us what you need. Create a project with all the
+                        requirements and budget.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Step 2 -->
+
+            <div class="col-lg-4">
+
+                <div class="step-card">
+
+                    <div class="step-icon">
+                        <i class="bi bi-chat-dots"></i>
+                    </div>
+
+                    <h4>Receive Proposals</h4>
+
+                    <p>
+                        Skilled freelancers send proposals and you can compare
+                        their experience, ratings and pricing.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Step 3 -->
+
+            <div class="col-lg-4">
+
+                <div class="step-card">
+
+                    <div class="step-icon">
+                        <i class="bi bi-check-circle"></i>
+                    </div>
+
+                    <h4>Hire & Collaborate</h4>
+
+                    <p>
+                        Select the best freelancer, start working together and
+                        complete your project successfully.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= WHY CHOOSE US ================= -->
+
+<section class="why-section">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2 class="section-title">
+                Why Choose FreelanceHub?
+            </h2>
+
+            <p class="section-subtitle">
+                Everything you need to hire the right talent or build your freelance career.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Card 1 -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="why-card">
+
+                    <i class="bi bi-shield-check"></i>
+
+                    <h4>Secure Payments</h4>
+
+                    <p>
+                        Safe and transparent payment system for every project.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Card 2 -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="why-card">
+
+                    <i class="bi bi-people-fill"></i>
+
+                    <h4>Verified Freelancers</h4>
+
+                    <p>
+                        Connect with experienced professionals from different industries.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Card 3 -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="why-card">
+
+                    <i class="bi bi-clock-history"></i>
+
+                    <h4>Fast Hiring</h4>
+
+                    <p>
+                        Receive proposals within minutes and hire quickly.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Card 4 -->
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="why-card">
+
+                    <i class="bi bi-headset"></i>
+
+                    <h4>24/7 Support</h4>
+
+                    <p>
+                        Our support team is available whenever you need assistance.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= TESTIMONIALS ================= -->
+
+<section class="testimonial-section">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2 class="section-title">
+                What Our Users Say
+            </h2>
+
+            <p class="section-subtitle">
+                Thousands of freelancers and clients trust FreelanceHub.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Testimonial 1 -->
+
+            <div class="col-lg-4">
+
+                <div class="testimonial-card">
+
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" class="testimonial-img">
+
+                    <h4>Sarah Johnson</h4>
+
+                    <small>Business Owner</small>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        FreelanceHub helped me hire an amazing web developer
+                        within just two days. The experience was smooth and
+                        professional.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Testimonial 2 -->
+
+            <div class="col-lg-4">
+
+                <div class="testimonial-card">
+
+                    <img src="https://randomuser.me/api/portraits/men/55.jpg" class="testimonial-img">
+
+                    <h4>David Wilson</h4>
+
+                    <small>Freelancer</small>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        I found high-quality clients and increased my income.
+                        The platform is easy to use and very reliable.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Testimonial 3 -->
+
+            <div class="col-lg-4">
+
+                <div class="testimonial-card">
+
+                    <img src="https://randomuser.me/api/portraits/women/22.jpg" class="testimonial-img">
+
+                    <h4>Emily Brown</h4>
+
+                    <small>Startup Founder</small>
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        Posting projects is simple and the quality of
+                        freelancers exceeded my expectations.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= STATISTICS ================= -->
+
+<section class="stats-section">
+
+    <div class="container">
+
+        <div class="row text-center">
+
+            <div class="col-md-3 col-6 mb-4">
+
+                <div class="stat-box">
+
+                    <i class="bi bi-people-fill"></i>
+
+                    <h2 class="counter" data-target="25000">0</h2>
+
+                    <p>Freelancers</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3 col-6 mb-4">
+
+                <div class="stat-box">
+
+                    <i class="bi bi-briefcase-fill"></i>
+
+                    <h2 class="counter" data-target="12000">0</h2>
+
+                    <p>Projects Posted</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3 col-6 mb-4">
+
+                <div class="stat-box">
+
+                    <i class="bi bi-building"></i>
+
+                    <h2 class="counter" data-target="5000">0</h2>
+
+                    <p>Companies</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3 col-6 mb-4">
+
+                <div class="stat-box">
+
+                    <i class="bi bi-star-fill"></i>
+
+                    <h2 class="counter" data-target="99">0</h2>
+
+                    <p>Success Rate (%)</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+{% endblock %}

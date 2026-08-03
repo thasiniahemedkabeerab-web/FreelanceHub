@@ -1,0 +1,101 @@
+{% extends 'dashboard/freelancer/dashboard_base.html' %}
+
+{% block dashboard_content %}
+
+<h1 class="fw-bold mb-3">
+👋 Welcome {{ request.user.username }}
+</h1>
+
+<p class="text-muted mb-5">
+Manage your freelance career from one place.
+</p>
+
+<div class="row g-4 mb-2">
+
+<div class="col-md-4">
+<div class="stat-card gradient1">
+<i class="bi bi-file-earmark-text-fill"></i>
+<h3>{{ total_applications }}</h3>
+<p>Applications Sent</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="stat-card gradient3">
+<i class="bi bi-check-circle-fill"></i>
+<h3>{{ accepted_applications }}</h3>
+<p>Accepted</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="stat-card gradient4">
+<i class="bi bi-briefcase-fill"></i>
+<h3>{{ available_jobs }}</h3>
+<p>Jobs Available</p>
+</div>
+</div>
+
+</div>
+
+<div class="row g-4 mt-2">
+
+<div class="col-md-6">
+
+<div class="stat-card gradient1">
+
+<i class="bi bi-search"></i>
+
+<h3>Browse Jobs</h3>
+
+<a href="{% url 'job_list' %}">Open</a>
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+
+<div class="stat-card gradient2">
+
+<i class="bi bi-file-earmark-text-fill"></i>
+
+<h3>Applications</h3>
+
+<a href="{% url 'my_applications' %}">Open</a>
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+
+<div class="stat-card gradient3">
+
+<i class="bi bi-person-fill"></i>
+
+<h3>Edit Profile</h3>
+
+<a href="{% url 'edit_profile' %}">Open</a>
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+
+<div class="stat-card gradient4">
+
+<i class="bi bi-box-arrow-right"></i>
+
+<h3>Logout</h3>
+
+<a href="{% url 'logout' %}">Logout</a>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

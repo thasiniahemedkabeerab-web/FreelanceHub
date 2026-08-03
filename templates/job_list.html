@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Available Jobs
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">Available Jobs</h2>
+
+    {% for job in jobs %}
+
+    <div class="card shadow-sm mb-4">
+
+        <div class="card-body">
+
+            <h4>{{ job.title }}</h4>
+
+            <p>
+                <strong>Category:</strong> {{ job.category }}
+            </p>
+
+            <p>{{ job.description }}</p>
+
+            <p>
+                <strong>Budget:</strong> ₹{{ job.budget }}
+            </p>
+
+            <p>
+                <strong>Deadline:</strong> {{ job.deadline }}
+            </p>
+
+            <p>
+                <strong>Client:</strong> {{ job.client.username }}
+            </p>
+
+            <!-- Apply Button (Freelancer) -->
+            {% if user.is_authenticated and user.role == "freelancer" %}
+                <a href="{% url 'apply_job' job.id %}" class="btn btn-success">
+                    Apply Now
+                </a>
+            {% endif %}
+
+            <!-- Client Buttons -->
+            {% if user.is_authenticated and user == job.client %}
+                <a href="{% url 'edit_job' job.id %}" class="btn btn-warning">
+                    Edit
+                </a>
+
+                <a href="{% url 'delete_job' job.id %}" class="btn btn-danger">
+                    Delete
+                </a>
+
+                <a href="{% url 'view_applications' job.id %}" class="btn btn-primary">
+                    View Applications
+                </a>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    {% empty %}
+
+    <div class="alert alert-warning">
+        No jobs available.
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

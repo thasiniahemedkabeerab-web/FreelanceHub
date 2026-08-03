@@ -1,0 +1,25 @@
+{% extends 'dashboard/freelancer/dashboard_base.html' %}
+
+{% block dashboard_content %}
+
+<h2 class="mb-4">
+👤 Edit Profile
+</h2>
+
+<div class="profile-card">
+
+<form method="POST" enctype="multipart/form-data">
+
+{% csrf_token %}
+
+{{ form.as_p }}
+
+<button class="btn login-btn">
+Save Profile
+</button>
+
+</form>
+
+</div>
+
+{% endblock %}

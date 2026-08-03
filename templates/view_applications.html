@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Applications</title>
+</head>
+<body>
+
+<h2>Applications for {{ job.title }}</h2>
+
+
+<table class="table table-bordered">
+
+<tr>
+    <th>Freelancer</th>
+    <th>Proposal</th>
+    <th>Bid</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+
+{% for application in applications %}
+
+<tr>
+
+<td>{{ application.freelancer.username }}</td>
+
+<td>{{ application.proposal }}</td>
+
+<td>{{ application.bid_amount }}</td>
+
+<td>{{ application.status }}</td>
+
+<td>
+
+{% if application.status == "Pending" %}
+
+<a class="btn btn-success btn-sm"
+href="{% url 'accept_application' application.id %}">
+Accept
+</a>
+
+<a class="btn btn-danger btn-sm"
+href="{% url 'reject_application' application.id %}">
+Reject
+</a>
+
+{% else %}
+
+{{ application.status }}
+
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>
