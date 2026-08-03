@@ -125,18 +125,6 @@ http://127.0.0.1:8000/
 - Submit proposals
 - Manage profile
 
-## 📸 Screenshots
-
-Add screenshots of:
-
-- Home Page
-- Login Page
-- Registration Page
-- Client Dashboard
-- Freelancer Dashboard
-- Job Listing
-- Job Details
-- Admin Dashboard
 
 ## 🚀 Future Enhancements
 
