@@ -1,22 +1,58 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Apply Job</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
 
-<h2>Apply for {{ job.title }}</h2>
+{% block title %}Apply Job{% endblock %}
 
-<form method="post">
-    {% csrf_token %}
+{% block content %}
 
-    {{ form.as_p }}
+<section class="dashboard-page">
 
-    <button type="submit">
-        Submit Application
-    </button>
+<div class="container py-5">
 
-</form>
+    <div class="dashboard-card" style="max-width:700px; margin:auto;">
 
-</body>
-</html>
+        <div class="page-header text-center">
+
+            <i class="bi bi-file-earmark-text-fill display-4 text-primary"></i>
+
+            <h2 class="mt-3">Apply for {{ job.title }}</h2>
+
+            <p>Submit your proposal and bid amount for this project.</p>
+
+        </div>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="mb-4">
+                <label class="form-label">Proposal</label>
+                {{ form.proposal }}
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">Bid Amount (₹)</label>
+                {{ form.bid_amount }}
+            </div>
+
+            <div class="text-center">
+
+                <button class="apply-btn px-5" type="submit">
+
+                    <i class="bi bi-send-fill"></i>
+
+                    Submit Application
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+</section>
+
+{% endblock %}
